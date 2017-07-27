@@ -1,0 +1,32 @@
+{
+  "name": "eventshawaii",
+  "version": "1.0.0",
+  "description": "hawaiian local news",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^0.7.12",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^2.2.11",
+    "passport": "^0.2.0",
+    "passport-facebook": "^1.0.3",
+    "passport-google": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.2",
+    "q": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OliverGray/eventshawaii.git"
+  },
+  "author": "oliver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OliverGray/eventshawaii/issues"
+  },
+  "homepage": "https://github.com/OliverGray/eventshawaii#readme"
+}
