@@ -1,20 +1,21 @@
 var bcrypt = require('bcryptjs'),
     Q = require('q'),
-    config = require('./config.js'); //config file contains all tokens and other private info
+    config = require('./config.js'),
+    randomstring = require('randomstring'); //config file contains all tokens and other private info
 
 // MongoDB connection information
 var mongodbUrl = 'mongodb://' + config.mongodbHost + ':27017/users';
 var MongoClient = require('mongodb').MongoClient
 
 //used in local-signup strategy
-exports.localReg = function (username, password) {
+exports.localReg = function (email, password) {
   var deferred = Q.defer();
 
   MongoClient.connect(mongodbUrl, function (err, db) {
     var collection = db.collection('localUsers');
 
     //check if username is already assigned in our database
-    collection.findOne({'username' : username})
+    collection.findOne({'email' : email})
       .then(function (result) {
         if (null != result) {
           console.log("USERNAME ALREADY EXISTS:", result.username);
@@ -23,24 +24,35 @@ exports.localReg = function (username, password) {
         else  {
           var hash = bcrypt.hashSync(password, 8);
           var user = {
-            "username": username,
+            "email": email,
             "password": hash,
-            "avatar": "http://placepuppy.it/images/homepage/Beagle_puppy_6_weeks.JPG"
+            "avatar": "./avatars/fineapple.jpg",
+            "verified": "false"
           }
 
-          console.log("CREATING USER:", username);
+          console.log("CREATING USER FOR:", email);
 
           collection.insert(user)
             .then(function () {
               db.close();
               deferred.resolve(user);
             });
+
+          var verification_token = randomstring.generate({
+                                length: 64
+                            });
+          var permalink = req.body.username.toLowerCase().replace(' ', '').replace(/[^\w\s]/gi, '').trim();
+
+          VerifyEmail.sendverification(email, verification_token, permalink);
+
         }
       });
   });
 
   return deferred.promise;
 };
+
+
 
 
 //check if user exists

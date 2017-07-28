@@ -22,7 +22,7 @@ var app = express();
 // Use the LocalStrategy within Passport to login/"signin" users.
 // Passport session setup.
 passport.serializeUser(function(user, done) {
-  console.log("serializing " + user.username);
+  console.log("serializing " + user.email);
   done(null, user);
 });
 
@@ -37,8 +37,8 @@ passport.use('local-signin', new LocalStrategy(
     funct.localAuth(username, password)
     .then(function (user) {
       if (user) {
-        console.log("LOGGED IN AS: " + user.username);
-        req.session.success = 'You are successfully logged in ' + user.username + '!';
+        console.log("LOGGED IN AS: " + user.email);
+        req.session.success = 'You are successfully logged in ' + user.email + '!';
         done(null, user);
       }
       if (!user) {
@@ -53,14 +53,17 @@ passport.use('local-signin', new LocalStrategy(
   }
 ));
 // Use the LocalStrategy within Passport to register/"signup" users.
-passport.use('local-signup', new LocalStrategy(
-  {passReqToCallback : true}, //allows us to pass back the request to the callback
-  function(req, username, password, done) {
-    funct.localReg(username, password)
+passport.use('local-signup', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback : true
+  }, //allows us to pass back the request to the callback
+  function(req, email, password, done) {
+    funct.localReg(email, password)
     .then(function (user) {
       if (user) {
-        console.log("REGISTERED: " + user.username);
-        req.session.success = 'You are successfully registered and logged in ' + user.username + '!';
+        console.log("REGISTERED: " + user.email);
+        req.session.success = 'You are successfully registered and logged in ' + user.email + '!';
         done(null, user);
       }
       if (!user) {
@@ -137,19 +140,28 @@ app.post('/login', passport.authenticate('local-signin', {
 
 //logs user out of site, deleting them from the session, and returns to homepage
 app.get('/logout', function(req, res){
-  var name = req.user.username;
-  console.log("LOGGING OUT " + req.user.username)
+  var name = req.user.email;
+  console.log("LOGGING OUT " + req.user.email)
   req.logout();
   res.redirect('/');
   req.session.notice = "You have successfully been logged out " + name + "!";
 });
 
+app.get('/post', function(req,res){
+  if (req.isAuthenticated()) {
+    res.render('post');
+  }
+  req.session.error = 'Please sign in!';
+  res.redirect('/signin');
+
+})
+
 // Simple route middleware to ensure user is authenticated.
-// function ensureAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) { return next(); }
-//   req.session.error = 'Please sign in!';
-//   res.redirect('/signin');
-// }
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  req.session.error = 'Please sign in!';
+  res.redirect('/signin');
+}
 
 //===============PORT=================
 var port = process.env.PORT || 5000; //select your port or let it pull from your .env file
