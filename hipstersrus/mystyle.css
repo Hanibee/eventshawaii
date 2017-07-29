@@ -12,6 +12,26 @@ li {
   font-family: 'Poiret One', cursive;
 }
 
+.josefinslab {
+  font-size: 25px;
+  font-family: 'Josefin Slab', serif;
+}
+
+.linktitle {
+  color: #222428;
+  background-color: white;
+  text-decoration: none;
+    padding: 14px 16px;
+}
+
+a:hover {
+  color: black;
+}
+
+a {
+  color: black
+}
+</style>
 
 
 /* Add a black background color to the top navigation */
