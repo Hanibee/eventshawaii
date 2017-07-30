@@ -4,10 +4,15 @@
   <p>We're using passport.js to demonstrate user authentication. Please sign-in with your Local, Twitter, Google, or Facebook account to view your profile.</p>
   <p>
     <a data-toggle="collapse" href="#local" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in Locally</a>
-    <a href="/auth/twitter" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Twitter</a>
-    <a href="/auth/google" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Google</a>
-    <a href="/auth/facebook" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Facebook</a>
+    <a href="/post" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Post something</a>
+    <!-- <a href="/auth/google" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Google</a>
+    <a href="/auth/facebook" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Facebook</a> -->
   </p>
+
+  <!-- <p>
+    <a class="twitter-timeline"  href="https://twitter.com/hashtag/Hawaii" data-widget-id="890733671887458305">#Hawaii Tweets</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p> -->
 
   <div id="local" class="collapse">
     <a data-toggle="collapse" href="#local-sign-in" class="btn btn-default btn-md" role="button">I already have an account</a>
@@ -17,8 +22,8 @@
   <form id="local-sign-in" class="collapse" action="/login" method="post">
     <div>
         <p></p>
-        <label>Username:</label>
-        <input type="text" name="username"/>
+        <label>Email:</label>
+        <input type="text" name="email"/>
     </div>
     <div>
         <label>Password:</label>
@@ -32,12 +37,16 @@
   <form id="local-reg" class="collapse" action="/local-reg" method="post">
     <div>
         <p></p>
-        <label>New Username:</label>
-        <input type="text" name="username"/>
+        <label>New Email:</label>
+        <input type="text" name="email"/>
     </div>
     <div>
         <label>New Password:</label>
         <input type="password" name="password"/>
+    </div>
+    <div>
+        <label>Would you like to subscribe to our mailing list?</label>
+        <input type="checkbox" name="mailinglist"/>
     </div>
     <div>
         <input type="submit" class="btn btn-primary btn-sm" value="Register"/>
