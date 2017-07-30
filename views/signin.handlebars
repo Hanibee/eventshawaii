@@ -1,10 +1,12 @@
 <!-- views/signin.handlebars -->
-<div class="jumbotron">
+<div class='modal' id="Modal" style="display:block">
+<div class="jumbotron" id='modalcontent'>
+  <span id="close">&times;</span>
   <h1>Sign in</h1>
-  <p>We're using passport.js to demonstrate user authentication. Please sign-in with your Local, Twitter, Google, or Facebook account to view your profile.</p>
+  <p>Please sign-in to view your profile.</p>
   <p>
     <a data-toggle="collapse" href="#local" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in Locally</a>
-    <a href="/post" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Post something</a>
+    <!-- <a href="/post" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Post something</a> -->
     <!-- <a href="/auth/google" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Google</a>
     <a href="/auth/facebook" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Facebook</a> -->
   </p>
@@ -53,3 +55,28 @@
     </div>
   </form>
 </div>
+</div>
+
+<script>
+window.onload = function(e){
+// Get the modal
+var modal = $('Modal');
+
+// Get the <span> element that closes the modal
+var span = $("close");
+
+// When the user clicks on the button, open the modal
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
+}
+</script>

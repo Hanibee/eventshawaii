@@ -1,0 +1,60 @@
+<!--views/home.handlebars -->
+ {{#if user}}
+ <div class='modal' id="Modal" style="display:block">
+ <div class="jumbotron" id='modalcontent'>
+     <a href="/" style="float:right;font-size:18px">&times;</a>
+    <h1>{{user.email}}'s Account'</h1>
+    <p>Below is your profile information!</p>
+    <a href="/post" class="btn btn-info btn-lg" role="button">
+      <span class="glyphicon glyphicon-user"></span> Post something
+    </a>
+    <div>
+      <p></p>
+    <p>
+      Your articles:
+    </p>
+
+    {{#each data}}
+    <a class='articles' href={{this.path}} >{{this.title}}</a>
+    {{/each}}
+  </div>
+
+  </div>
+
+
+{{else}}
+  <div class="jumbotron">
+    <h1>User Authentication</h1>
+    <p>Sign in and view your profile!</p>
+    <p>
+      <a href="/signin" class="btn btn-primary btn-lg" role="button">
+        <span class="glyphicon glyphicon-user"></span>
+        Sign in!
+      </a>
+    </p>
+  </div>
+</div>
+<script>
+window.onload = function(e){
+// Get the modal
+var modal = $('Modal');
+
+// Get the <span> element that closes the modal
+var span = $("close");
+
+// When the user clicks on the button, open the modal
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
+}
+</script>
+{{/if}}

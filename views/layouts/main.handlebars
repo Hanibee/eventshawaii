@@ -11,10 +11,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="slick.css"/>
   <link rel="stylesheet" type="text/css" href="slick-theme.css"/>
-  <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="slick.min.js"></script>
-  <script type="text/javascript" src="carousel2.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="slick.js"></script>
+  <!-- <script type="text/javascript" src="carousel2.js"></script> -->
+
+  <script>
+  $(document).ready(function(){
+    $('#bigevents').slick({
+      slidesToShow: 1,
+     slidesToScroll: 1,
+     autoplay: true,
+     autoplaySpeed: 2000,
+    });
+    $('#smallerevents').slick({
+    slidesToShow: 1,
+   slidesToScroll: 1,
+   autoplay: true,
+   autoplaySpeed: 2000,
+    });
+  });
+</script>
 
   <style type="text/css">a {text-decoration: none; padding: 10px 10px;}</style>
   <link rel="stylesheet" type="text/css" href="layout.css">
@@ -44,7 +61,7 @@
   }
   </style>
 
-  <title>User Authentication</title>
+  <title>Events Hawaii</title>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -56,13 +73,13 @@
     <div class="container">
 
 
+
       <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
 
       <!-- Brand and toggle get grouped for better mobile display -->
           <div id="share-buttons">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" float="right">
-
+            <div style="padding-top:10px">
           <a href="http://www.facebook.com/sharer.php" target="_blank">
               <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
           </a>
@@ -91,6 +108,19 @@
           <a href="https://twitter.com/share" target="_blank">
               <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
           </a>
+          {{#if user}}
+          <a href="/accounts" class="btn btn-primary btn-lg" role="button">
+            <span class="glyphicon glyphicon-user"></span>
+            Logged in as {{user.email}}
+          </a>
+
+          {{else}}
+          <a href="/signin" class="btn btn-primary btn-lg" role="button">
+            <span class="glyphicon glyphicon-user"></span>
+            Sign in!
+          </a>
+          {{/if}}
+        </div>
         </div>
         </button>
       </div>
@@ -111,28 +141,45 @@
       <p class="alert alert-info">{{notice}}</p>
     {{/if}}
 
+
     <!--where our other templates will insert-->
     <div class="lobster2">
       <div class="linktitle">
   <div class="a:hover">
     <div class="a">
-        <center>
-        <li><a href="/">Events Hawaii</a></li>
-      </center>
+      <div class="hopeyouwork">
+        <div style="text-align: right; display:inline">
+          <li><a href="/" style="display:inline;hover:none;text-decoration:none">Events <img src="hipsterslogo.png" width="150" height="auto" margin-left="300px" margin-top="100px"></img> Hawaii</a></li>
+          <div style="float:right"><script>
+            (function() {
+              var cx = '015794493855047998813:w88grtqmg_i';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search></div>
+        </div>
+      </div>
+
     </div>
   </div>
-  </div>
+</div>
+
     </div>
-    <div class="poiret1" width="100%">
-     <ul id="drop-nav">
-            <li width="20%"><a href="bigisland">Big Island</a>
+    <div class="poiret1" width="100%" >
+     <ul id="drop-nav" width=100% >
+            <li width=20%><a href="bigisland">Big Island</a>
               <ul>
                 <li><a href="kona">Kona</a></li>
                 <li><a href="hilo">Hilo</a></li>
                 <li><a href="blogbigisland">Blog</a></li>
               </ul>
                 </li>
-            <li width="20%"><a href="mauicounty">Maui County</a>
+            <li width=20%><a href="mauicounty">Maui County</a>
               <ul>
                 <li><a href="maui">Maui</a></li>
                 <li><a href="lanai">Lanai</a></li>
@@ -141,7 +188,7 @@
                 <li><a href="blogmauicounty">Blog</a></li>
               </ul>
             </li>
-            <li width="20%"><a href="kauai">Kauai</a>
+            <li width=20%><a href="kauai">Kauai</a>
               <ul>
                 <li><a href="blogkauai">Blog</a></li>
               </ul>
@@ -167,10 +214,11 @@
   </div>
 
   <div id="smallerevents" class="mycarousel">
-    <div><img class="myslide" src="SAUCE-14.jpg"><p>hello world</p></div>
-    <div><img class="myslide" src="MauiOrchestraMultipleDudes.jpg"><p>Test</p></div>
-    <div><img class="myslide" src="SAUCE-14.jpg"><p>hello</p></div>
+    <div><a href="http://northhawaiihospice.org/wp-content/uploads/Hospice-Floating-Lantern-Ceremony-2017.jpg"><img class="myslide" src="lanturns_1024.jpg"></a></div>
+    <div><a href="http://www.mauichamberorchestra.org/home.aspx"><img class="myslide" src="MauiOrchestraMultipleDudes.jpg"></a></div>
+    <div><a href="http://www.koloaplantationdays.com/?src=opi"><img class="myslide" src="koloatown.jpg"></a></div>
   </div>
+
     {{{body}}}
 
     </div> <!-- /container -->
