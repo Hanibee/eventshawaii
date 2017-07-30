@@ -1,0 +1,72 @@
+<!-- views/layouts/main.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="User Authentication">
+  <meta name="author" content="">
+
+  <title>Article Submission</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/layout.css" type='text/css'>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+    </nav> -->
+
+    {{#if user}}
+      <div id="content">
+        <h1 class="content-header">Submit an Article</h1>
+        <form class="contact-us-form" method='post'>
+          <p>
+            <input type="text" placeholder="Full name" name="name">
+          </p>
+          <p>
+            <input type="text" placeholder="Article title" name="title">
+          </p>
+          <textarea name="message" id="" rows="12" placeholder="Type your message here"></textarea>
+          <div class="content-actions">
+            <input type="submit" class="button" value="Submit" />
+            <div>
+              <label for="FileUpload" class="button contact-us-file-button">Attach Files</label>
+              <input type="file" id="FileUpload" class="show-for-sr">
+            </div>
+          </div>
+        </form>
+      </div>
+    {{/if}}
+    <!--where our other templates will insert-->
+    {{{body}}}
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
