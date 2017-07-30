@@ -21,7 +21,9 @@ li {
   color: #222428;
   background-color: white;
   text-decoration: none;
-    padding: 14px 16px;
+  float: left;
+  padding-left: 100px;
+  padding-top: 70px;
 }
 
 a:hover {
@@ -59,3 +61,72 @@ img.myslide {
   width: 800px;
   height: auto;
 }
+
+
+img.logoyo {
+width: 50px;
+height: auto;
+
+}
+
+.imagetext {
+   position: relative;
+   width: 100%; /* for IE 6 */
+}
+
+.hopeyouwork {
+  display: inline-flex;
+}
+
+.logoswag {
+  padding-left: 50px;
+}
+/*
+h2 {
+   position: absolute;
+   top: 200px;
+   left: 0;
+   width: 100%;
+}
+
+h2 span {
+   color: white;
+   font: bold 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0); /* fallback color */
+   /*background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+
+h2 span.spacer {
+   padding:0 5px;
+}
+
+*/
+
+/*.carousel-caption {
+    position: absolute;
+    z-index: 1;
+    display:table;
+    width:100%;
+    height:100%;
+}
+
+.absolute-div {
+    position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+}
+
+.carousel-caption h3 {
+    display:table-cell;
+    vertical-align: middle;
+    text-align:center;
+}
+
+.item {
+    position:relative;
+}
+*/
