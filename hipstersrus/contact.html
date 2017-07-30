@@ -1,9 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script type="text/javascript" src="carousel2.js"></script>
+
+<style type="text/css">
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+</style>
+<!-- I got these buttons from simplesharebuttons.com -->
+<div id="share-buttons">
+
+  <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+
+    <!-- Google+ -->
+    <a href="https://plus.google.com/share" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+    </a>
+
+    <!-- Pinterest -->
+    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
+    </a>
+
+    <!-- Tumblr-->
+    <a href="http://www.tumblr.com/share" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
+    </a>
+
+    <!-- Twitter -->
+    <a href="https://twitter.com/share" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+    </a>
+
+</div>
+
   <style type="text/css">a {text-decoration: none; padding: 10px 10px;}</style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="mystyle.css">
   <style type="text/css">
   ul {list-style: none;padding: 0px;margin: 0px;}
@@ -18,7 +70,7 @@
   li:hover li {float: none;}
   li:hover a {background: #f2f2f2}
   li:hover li a:hover {background: white;}
-  #drop-nav li ul li {border-top: 0px;}
+  #drop-nav li ul li {border-top: 0px; z-index: 100;}
   </style>
 
 </head>
@@ -27,14 +79,14 @@
 
   <div class="lobster2">
     <div class="linktitle">
-  <div class="a:hover">
+<div class="a:hover">
   <div class="a">
       <center>
       <li><a href="index.html">Events Hawaii</a></li>
     </center>
   </div>
-  </div>
-  </div>
+</div>
+</div>
   </div>
   <div class="poiret1">
    <ul id="drop-nav">
@@ -45,7 +97,7 @@
               <li><a href="blogbigisland.html">Blog</a></li>
             </ul>
               </li>
-          <li><a href="mauicounty">Maui County</a>
+          <li><a href="mauicounty.html">Maui County</a>
             <ul>
               <li><a href="maui.html">Maui</a></li>
               <li><a href="lanai.html">Lanai</a></li>
@@ -54,7 +106,7 @@
               <li><a href="blogmauicounty.html">Blog</a></li>
             </ul>
           </li>
-          <li><a href="kauai">Kauai</a>
+          <li><a href="kauai.html">Kauai</a>
             <ul>
               <li><a href="blogkauai.html">Blog</a></li>
             </ul>
@@ -65,12 +117,19 @@
           </li>
         </ul>
 </div>
+
 <center>
   <br>
 </br>
+<br>
+</br>
 <div class="josefinslab">
  <p> Contact us on our social media accounts: ...  Set up your account here and upload your blogs!</p>
+
+<img src="SAUCE-14.jpg" width="500px" height="400px">
 </center>
+
+
 </body>
 
 </html>
