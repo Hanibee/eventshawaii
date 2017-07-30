@@ -11,10 +11,21 @@ li {
   font-size: 30px;
   font-family: 'Poiret One', cursive;
 }
+.aladin {
+  font-family: 'Aladin', cursive;
+  font-size: 30px;
+}
 
-.josefinslab {
+/*.josefinslab {
   font-size: 25px;
   font-family: 'Josefin Slab', serif;
+}
+
+*/
+
+.yowritingwhower {
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 .linktitle {
