@@ -9,8 +9,10 @@
     "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
+    "express-favicon": "^2.0.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.4",
+    "fs": "0.0.1-security",
     "method-override": "^2.3.9",
     "mongodb": "^2.2.11",
     "morgan": "^1.8.2",
@@ -19,7 +21,9 @@
     "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.2",
-    "q": "^1.0.1"
+    "q": "^1.0.1",
+    "randomstring": "^1.1.5",
+    "serve-favicon": "^2.4.3"
   },
   "devDependencies": {},
   "scripts": {

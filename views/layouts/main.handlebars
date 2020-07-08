@@ -7,8 +7,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="User Authentication">
   <meta name="author" content="">
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick-theme.css"/>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="slick.js"></script>
+  <!-- <script type="text/javascript" src="carousel2.js"></script> -->
 
-  <title>User Authentication</title>
+  <script>
+  $(document).ready(function(){
+    $('#bigevents').slick({
+      slidesToShow: 1,
+     slidesToScroll: 1,
+     autoplay: true,
+     autoplaySpeed: 2000,
+    });
+    $('#smallerevents').slick({
+    slidesToShow: 1,
+   slidesToScroll: 1,
+   autoplay: true,
+   autoplaySpeed: 2000,
+    });
+  });
+</script>
+
+  <style type="text/css">a {text-decoration: none; padding: 10px 10px;}</style>
+  <link rel="stylesheet" type="text/css" href="layout.css">
+  <style type="text/css">
+  ul {list-style: none;padding: 0px;margin: 0px;}
+  ul li {display: block;position: relative;float: left;border:1px
+      padding: 14px 16px;
+      text-decoration: none; solid #333}
+  li ul {display: none;}
+  ul li a {display: block;background: #333;padding: 2px 58px 2px 58px;text-decoration: none;
+           white-space: nowrap;color: #ddd;}
+  ul li a:hover {background: #f2f2f2;}
+  li:hover ul {display: block; position: absolute;}
+  li:hover li {float: none;}
+  li:hover a {background: #f2f2f2}
+  li:hover li a:hover {background: white;}
+  #drop-nav li ul li {border-top: 0px; z-index: 100;}
+  </style>
+
+  <style type="text/css">
+  #share-buttons img {
+  width: 35px;
+  padding: 5px;
+  border: 0;
+  box-shadow: 0;
+  display: inline;
+  }
+  </style>
+
+  <title>Events Hawaii</title>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -19,41 +72,60 @@
 
     <div class="container">
 
+
+
       <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
 
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <div id="share-buttons">
+            <div style="padding-top:10px">
+          <a href="http://www.facebook.com/sharer.php" target="_blank">
+              <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+          </a>
+
+          <!-- Google+ -->
+          <a href="https://plus.google.com/share" target="_blank">
+              <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="http://www.linkedin.com/shareArticle?mini=true&amp" target="_blank">
+              <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+          </a>
+
+          <!-- Pinterest -->
+          <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+              <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
+          </a>
+
+          <!-- Tumblr-->
+          <a href="http://www.tumblr.com/share" target="_blank">
+              <img src="https://simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
+          </a>
+
+          <!-- Twitter -->
+          <a href="https://twitter.com/share" target="_blank">
+              <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+          </a>
+          {{#if user}}
+          <a href="/accounts" class="btn btn-primary btn-lg" role="button">
+            <span class="glyphicon glyphicon-user"></span>
+            Logged in as {{user.email}}
+          </a>
+
+          {{else}}
+          <a href="/signin" class="btn btn-primary btn-lg" role="button">
+            <span class="glyphicon glyphicon-user"></span>
+            Sign in!
+          </a>
+          {{/if}}
+        </div>
+        </div>
         </button>
       </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li>
-              {{#if user}}
-                <p class="navbar-text">
-                  <strong>Hi,</strong>
-                  <img src="{{user.avatar}}" width="20" height="20">
-                  {{user.username}}
-                </p>
-                </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li>
-                    <a href="/logout">Log Out</a>
-                  </li>
-              {{else}}
-                <a href="/signin">Sign In</a>
-                </li>
-              {{/if}}
-          </ul>
-        </div><!-- /.navbar-collapse -->
+
       </div><!-- /.container-fluid -->
     </nav>
 
@@ -69,7 +141,84 @@
       <p class="alert alert-info">{{notice}}</p>
     {{/if}}
 
+
     <!--where our other templates will insert-->
+    <div class="lobster2">
+      <div class="linktitle">
+  <div class="a:hover">
+    <div class="a">
+      <div class="hopeyouwork">
+        <div style="text-align: right; display:inline">
+          <li><a href="/" style="display:inline;hover:none;text-decoration:none">Events <img src="hipsterslogo.png" width="150" height="auto" margin-left="300px" margin-top="100px"></img> Hawaii</a></li>
+          <div style="float:right"><script>
+            (function() {
+              var cx = '015794493855047998813:w88grtqmg_i';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="poiret1" width="100%" >
+     <ul id="drop-nav" width=100% >
+            <li width=20%><a href="bigisland">Big Island</a>
+              <ul>
+                <li><a href="kona">Kona</a></li>
+                <li><a href="hilo">Hilo</a></li>
+                <li><a href="blogbigisland">Blog</a></li>
+              </ul>
+                </li>
+            <li width=20%><a href="mauicounty">Maui County</a>
+              <ul>
+                <li><a href="maui">Maui</a></li>
+                <li><a href="lanai">Lanai</a></li>
+                <li><a href="molokai">Molokai</a></li>
+                <li><a href="kahoolawe">Kahoolawe</a></li>
+                <li><a href="blogmauicounty">Blog</a></li>
+              </ul>
+            </li>
+            <li width=20%><a href="kauai">Kauai</a>
+              <ul>
+                <li><a href="blogkauai">Blog</a></li>
+              </ul>
+            </li>
+            <li width=20%><a href="whoweare">Who We Are</a>
+            </li>
+            <li width=20%><a href="contact">Contact</a>
+            </li>
+          </ul>
+  </div>
+
+  <div id="bigevents" class="mycarousel">
+    <div><img class="myslide" src="SAUCE-14.jpg"><p>hello world</p></div>
+    <div><img class="myslide" src="MauiOrchestraMultipleDudes.jpg"><p>Test</p></div>
+    <div><img class="myslide" src="SAUCE-14.jpg"><p>hello</p></div>
+  </div>
+
+  <div class="hovercool">
+  <img src="SAUCE-14.jpg" width="500" height="400"></img>
+  <div class="hoveryo">
+  <img src="MauiOrchestraMultipleDudes.jpg" width="500" height="400"></img>
+  </div>
+  </div>
+
+  <div id="smallerevents" class="mycarousel">
+    <div><a href="http://northhawaiihospice.org/wp-content/uploads/Hospice-Floating-Lantern-Ceremony-2017.jpg"><img class="myslide" src="lanturns_1024.jpg"></a></div>
+    <div><a href="http://www.mauichamberorchestra.org/home.aspx"><img class="myslide" src="MauiOrchestraMultipleDudes.jpg"></a></div>
+    <div><a href="http://www.koloaplantationdays.com/?src=opi"><img class="myslide" src="koloatown.jpg"></a></div>
+  </div>
+
     {{{body}}}
 
     </div> <!-- /container -->
